@@ -8,33 +8,44 @@ body {
 
 .animation-delay {
     span {
-        // animation: fade 1000ms infinite;
         display: block;
-        background-color: aquamarine;
+        background-color: $c1;
         text-align: center;
-        font-size: 3rem;
+        font-size: $font;
         font-family: sans-serif;
+        @include prefixProp(filter, grayscale(.7));
+        @include prefix(animation, fade 1000ms infinite);
 
         &:nth-of-type(odd) {
-            background-color: cadetblue;
+            background-color: $c2;
+        }
+
+        &.active {
+            background-color: $c3;
         }
 
         // @for $i from 1 through 50 {
         //     &:nth-of-type(#{$i}) {
-        //         animation-delay: #{$i*75}ms;
+        //         @include prefix(animation-delay, 100ms);
         //     }
         // }
-    }
 
-    @keyframes fade {
-        0% {
-            opacity: 0;
+        @for $i from 1 through 50 {
+            &:nth-of-type(#{$i}) {
+                animation-delay: #{$i*75}ms;
+            }
         }
-        50% {
-            opacity: 1;
-        }
-        100% {
-            opacity: 0;
+
+        @keyframes fade {
+            0% {
+                opacity: 0;
+            }
+            50% {
+                opacity: 1;
+            }
+            100% {
+                opacity: 0;
+            }
         }
     }
 }
