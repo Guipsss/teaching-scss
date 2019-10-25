@@ -1,0 +1,20 @@
+@mixin prefix($prop, $value) {
+    -webkit-#{$prop}: $value;
+    -moz-#{$prop}: $value;
+    -ms-#{$prop}: $value;
+    #{$prop}: $value;
+}
+
+@mixin prefixProp($prop, $value) {
+    #{$prop}: -webkit-#{$value};
+    #{$prop}: -moz-#{$value};
+    #{$prop}: -ms-#{$value};
+    #{$prop}: #{$value};
+}
+
+@mixin linearGradient($ca, $cb, $dir, $pa, $pb) {
+    background-image: -webkit-linear-gradient(#{$dir}, #{$ca} #{$pa}, #{$cb} #{$pb});
+    background-image: -moz-linear-gradient(#{$dir}, #{$ca} #{$pa}, #{$cb} #{$pb});
+    background-image: -ms-linear-gradient(#{$dir}, #{$ca} #{$pa}, #{$cb} #{$pb});
+    background-image: linear-gradient(#{$dir}, #{$ca} #{$pa}, #{$cb} #{$pb});
+}
